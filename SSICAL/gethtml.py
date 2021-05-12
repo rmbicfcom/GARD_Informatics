@@ -12,6 +12,8 @@ import sys
 url = "https://secure.ssa.gov/apps10/poms.nsf/lnx/0423022375"
 # define columns of interest. some of these will match the first data element in a table row
 cols = ['SECTION_NUMBER',
+        'ICD-9',
+        'ICD-10',
         'DISEASE_NAME',
         'ALTERNATE NAMES',
         'DESCRIPTION',
@@ -74,6 +76,10 @@ print("LastUpdate", LAST_UPDATE["value"])
 d["LAST_UPDATE"] = LAST_UPDATE["value"]
 #print out columns followed by the row of data
 print("\t".join(cols))
+
+# extract ICD9/10 codes from d['DIAGNOSTIC TESTING, PHYSICAL FINDINGS, AND ICD-9-CM/ICD-10-CM CODING']
+d['ICD-9'] = "something"
+d['ICD-10'] = "something"
 
 dval = []
 for col in cols:
