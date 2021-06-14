@@ -34,11 +34,11 @@ for i in df.index: # head(10).index:
     
     metadesc = soup.find("meta", attrs={"name": "description"})
     desc = metadesc['content'].replace("\n", " ").replace("\t", " ").strip() if metadesc else "No meta description"
-    data.append(desc)
     #print(desc)
     pagetitle = soup.find("title")
     title = pagetitle.text.replace("\n", " ").replace("\t", " ").strip() if pagetitle else "No title"
     data.append(title)
+    data.append(desc)
     print("\t".join(data))
     time.sleep(1)
 
